@@ -51,7 +51,7 @@ run:
 	echo MQTT online… ;
 	sudo docker run --name stt0 --privileged --network host -d stt0 ;
 	echo stt0 online… ;
-	sudo docker run --name wb0 -p 5200:5200 -d wb0 ;
+	sudo docker run --name wb0 -p 5200:5200 --network host -d wb0 ;
 	echo wb0 online… ;
 	echo You are now inside the audio_input0 container. && sudo docker run --name audio_input0 --privileged --network host -ti audio_input0 /bin/bash 
 
