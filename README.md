@@ -5,12 +5,12 @@ This repository contains a Makefile to download and run all four containers for 
 
 ## Packages
 
-# Required
+### Required
 The following packages are required for use of the CSTS:
 - Git, Curl, and Make can be installed by running (on Linux and MacOS) ```sudo apt update && sudo apt install -y git make curl```
 - Docker can be installed by running (on Linux and MacOS) ```curl -sSL https://get.docker.com/ | sh
 
-# Optional
+### Optional
 The following packages are not required, but advised to install for debugging or development: 
 - jq vim net-tools, NPM, and Mosquitto can be installed  by running (on Linux and MacOS) ```sudo apt install -y jq vim net-tools npm mosquitto-clients```
 
