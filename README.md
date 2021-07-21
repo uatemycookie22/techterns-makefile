@@ -8,7 +8,7 @@ This repository contains a Makefile to download and run all four containers for 
 ### Required
 The following packages are required for use of the CSTS:
 - Git, Curl, and Make can be installed by running (on Linux and MacOS) ```sudo apt update && sudo apt install -y git make curl```
-- Docker can be installed by running (on Linux and MacOS) ```curl -sSL https://get.docker.com/ | sh
+- Docker can be installed by running (on Linux and MacOS) ```curl -sSL https://get.docker.com/ | sh```
 
 ### Optional
 The following packages are not required, but advised to install for debugging or development: 
@@ -16,8 +16,9 @@ The following packages are not required, but advised to install for debugging or
 
 ## Deployment
 The Makefile is used to shorten the steps to get the system running by running multiple commands with a single 'make' command.
-- Run ```make build``` while in the local repository's directory to clone all TechTerns repositories.
-- For now, you must add an .env-local file containing environment variables for the Watson Speech-To-Text and Text-To-Speech API keys. 
+- Run ```make build``` while in the local repository's directory to clone all TechTerns repositories. 
+- In your directory, there will now be 3 folders: audio-input (Audio Input repository), audio-output (Text and Audio Output repository), and techterns (Speech-To-Text and Text-To-Speech repository).
+- For now, you must add an .env-local file containing environment variables for the Watson Speech-To-Text and Text-To-Speech API keys and the Speech-To-Text and Text-To-Speech URLs. The keys must be set to the following variables, ```tts_apikey=<tts_key>``` for the TTS key, ```stt_apikey=<stt_key>``` for the STT key, ```tts_url=<tts_url>``` for the TTS url, and ```stt_url=<stt_url>``` for the STT url, where text enclosed in <> are placeholders. Place the .env-local file inside the techterns folder. 
 - Run ```make run-containers``` to build the images and run all the containers, leaving you inside the bash of the Audio Input container at the end. 
 - Inside the Audio Input container bash, you can run ```npm run record:5wav``` to record a 5 second wav file, then ```npm format-audio:temp``` to format it as a JSON, and finally ```npm run audio-pub:temp``` to publish the audio to the MQTT message broker. To do all of these steps at once, run ```npm run all```.
 - Connect to ```<PUBLIC_IP>:5200/stuff``` in your browser, where ```<PUBLIC_IP>``` is your public IP address.
